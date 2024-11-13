@@ -34,15 +34,17 @@ interface Post {
 }
 
 async function getPost(slug: string) {
-  const res = await fetch(`http://localhost:8000/plogs?slug=${slug}`);
+  const res = await fetch(
+    `${process.env.NEXT_PUBLIC_API_URL}/plogs?slug=${slug}`
+  );
   const post: Post[] = await res.json();
   if (!post) notFound();
   return post[0];
 }
 
 export async function generateStaticParams() {
-  const posts = await fetch("http://localhost:8000/plogs").then((res) =>
-    res.json()
+  const posts = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/plogs`).then(
+    (res) => res.json()
   );
 
   return posts.map((post: Post) => ({
