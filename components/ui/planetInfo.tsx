@@ -34,6 +34,7 @@ const PlanetInfo = ({
   geology,
   images,
 }: PlanetInfoProps) => {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const colors = {
     mercury: "md:bg-secondary-600",
     venus: "md:bg-primary-400",
