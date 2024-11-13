@@ -4,14 +4,7 @@ import { Canvas } from "@react-three/fiber";
 import { Suspense } from "react";
 import { OrbitControls, Stars } from "@react-three/drei";
 
-interface BgPlanet {
-  position: number;
-}
-
-const PlanetBg = ({
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  position,
-}: BgPlanet) => {
+const PlanetBg: React.FC = () => {
   return (
     <Canvas className="hidden md:block">
       <Suspense fallback={null}>
