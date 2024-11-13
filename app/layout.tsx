@@ -8,7 +8,7 @@ import Navigation from "@/components/navigation";
 //   src: "./fonts/Antonio-Medium.woff",
 //   weight: "500",
 // });
-export const leagueSpartan = localFont({
+const leagueSpartan = localFont({
   src: "./fonts/LeagueSpartan-Bold.woff",
   weight: "700",
 });
