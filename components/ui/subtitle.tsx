@@ -1,4 +1,5 @@
-import { antonio } from "@/app/layout";
+// import { antonio } from "@/app/layout";
+import { antonio } from "../navigation";
 
 interface SubtitleProps {
   rotation: string;

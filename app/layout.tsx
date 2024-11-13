@@ -4,18 +4,18 @@ import Navigation from "@/components/navigation";
 
 // import PlanetBg from "@/components/planetBg";
 
-export const antonio = localFont({
-  src: "./fonts/Antonio-Medium.woff",
-  weight: "500",
-});
+// export const antonio = localFont({
+//   src: "./fonts/Antonio-Medium.woff",
+//   weight: "500",
+// });
 export const leagueSpartan = localFont({
   src: "./fonts/LeagueSpartan-Bold.woff",
   weight: "700",
 });
-export const leagueSpartanRegular = localFont({
-  src: "./fonts/LeagueSpartan-Regular.woff",
-  weight: "400",
-});
+// export const leagueSpartanRegular = localFont({
+//   src: "./fonts/LeagueSpartan-Regular.woff",
+//   weight: "400",
+// });
 
 export default function RootLayout({
   children,

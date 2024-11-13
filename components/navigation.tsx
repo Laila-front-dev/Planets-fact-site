@@ -1,7 +1,19 @@
 import Container from "./ui/container";
 import MainNav from "./main-nav";
-import { antonio } from "@/app/layout";
+// import { antonio } from "@/app/layout";
+// import { antonio } from "@/app/(planets)/page";
 import Link from "next/link";
+import localFont from "next/font/local";
+
+export const antonio = localFont({
+  src: "../app/fonts/Antonio-Medium.woff",
+  weight: "500",
+});
+
+export const leagueSpartanRegular = localFont({
+  src: "../app/fonts/LeagueSpartan-Regular.woff",
+  weight: "400",
+});
 
 const Navigation = () => {
   return (

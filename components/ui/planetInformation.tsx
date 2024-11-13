@@ -1,5 +1,6 @@
 import Link from "next/link";
-import { antonio, leagueSpartanRegular } from "@/app/layout";
+// import { antonio, leagueSpartanRegular } from "@/app/layout";
+import { antonio, leagueSpartanRegular } from "../navigation";
 
 interface PlanetTextProps {
   name: string;

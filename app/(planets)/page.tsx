@@ -1,10 +1,23 @@
 import { Metadata } from "next";
 
 import Container from "@/components/ui/container";
-import { antonio } from "../layout";
-import { leagueSpartanRegular } from "../layout";
+
 import StstemSolaire from "@/components/system-solaire";
 import PlanetBg from "@/components/planetBg";
+import localFont from "next/font/local";
+
+const antonio = localFont({
+  src: "../fonts/Antonio-Medium.woff",
+  weight: "500",
+});
+// export const leagueSpartan = localFont({
+//   src: "./fonts/LeagueSpartan-Bold.woff",
+//   weight: "700",
+// });
+const leagueSpartanRegular = localFont({
+  src: "../fonts/LeagueSpartan-Regular.woff",
+  weight: "400",
+});
 
 export const metadata: Metadata = {
   title: "the Planets",
