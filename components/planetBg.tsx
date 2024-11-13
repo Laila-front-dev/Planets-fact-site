@@ -4,6 +4,7 @@ import { Canvas } from "@react-three/fiber";
 import { Suspense } from "react";
 import { OrbitControls, Stars } from "@react-three/drei";
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const PlanetBg: React.FC = () => {
   return (
     <Canvas className="hidden md:block">
