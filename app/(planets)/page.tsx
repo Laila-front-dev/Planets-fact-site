@@ -12,7 +12,7 @@ export const metadata: Metadata = {
     "The solar system has eight planets: Mercury, Venus, Earth, Mars,Jupiter, Saturn, Uranus, and Neptune. There are five officiallyrecognized dwarf planets in our solar system: Ceres, Pluto,Haumea, Makemake, and Eris.",
 };
 
-const Page = () => {
+const Page: React.FC = () => {
   return (
     <main className="md:h-[100vh]">
       <div style={{ position: "absolute", width: "100vw", height: "inherit" }}>
