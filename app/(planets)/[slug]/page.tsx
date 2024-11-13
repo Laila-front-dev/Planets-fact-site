@@ -33,19 +33,35 @@ interface Post {
   };
 }
 
+// const response = await fetch(url);
+
 async function getPost(slug: string) {
-  const res = await fetch(
-    `${process.env.NEXT_PUBLIC_API_URL}/plogs?slug=${slug}`
-  );
+  const baseUrl = process.env.NEXT_PUBLIC_API_URL;
+  if (!baseUrl) {
+    throw new Error("API_URL environment variable is not set");
+  }
+
+  // const baseUrl = process.env.API_URL;
+  const endpoint = "plogs";
+
+  const url = `${baseUrl}/${endpoint}`;
+  const res = await fetch(`${url}?slug=${slug}`);
   const post: Post[] = await res.json();
   if (!post) notFound();
   return post[0];
 }
 
 export async function generateStaticParams() {
-  const posts = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/plogs`).then(
-    (res) => res.json()
-  );
+  const baseUrl = process.env.NEXT_PUBLIC_API_URL;
+  if (!baseUrl) {
+    throw new Error("API_URL environment variable is not set");
+  }
+
+  // const baseUrl = process.env.API_URL;
+  const endpoint = "plogs";
+
+  const url = `${baseUrl}/${endpoint}`;
+  const posts = await fetch(`${url}`).then((res) => res.json());
 
   return posts.map((post: Post) => ({
     slug: post.slug,
