@@ -2,7 +2,7 @@ import localFont from "next/font/local";
 import "./globals.css";
 import Navigation from "@/components/navigation";
 
-import PlanetBg from "@/components/planetBg";
+// import PlanetBg from "@/components/planetBg";
 
 export const antonio = localFont({
   src: "./fonts/Antonio-Medium.woff",
