@@ -34,14 +34,14 @@ interface Post {
 }
 
 async function getPost(slug: string) {
-  const res = await fetch(`http://localhost:2000/plogs?slug=${slug}`);
+  const res = await fetch(`http://localhost:8000/plogs?slug=${slug}`);
   const post: Post[] = await res.json();
   if (!post) notFound();
   return post[0];
 }
 
 export async function generateStaticParams() {
-  const posts = await fetch("http://localhost:2000/plogs").then((res) =>
+  const posts = await fetch("http://localhost:8000/plogs").then((res) =>
     res.json()
   );
 
