@@ -53,20 +53,52 @@ async function getPost(slug: string) {
   return post;
 }
 
+// export async function generateStaticParams() {
+//   const baseUrl = process.env.NEXT_PUBLIC_API_URL;
+//   if (!baseUrl) {
+//     throw new Error("API_URL environment variable is not set");
+//   }
+
+//   const endpoint = "planet-fact.json";
+
+//   const url = `${baseUrl}/${endpoint}`;
+//   const posts = await fetch(`${url}`).then((res) => res.json());
+
+//   return posts.map((post: Post) => ({
+//     slug: post.slug,
+//   }));
+// }
+
 export async function generateStaticParams() {
   const baseUrl = process.env.NEXT_PUBLIC_API_URL;
+
   if (!baseUrl) {
     throw new Error("API_URL environment variable is not set");
   }
 
   const endpoint = "planet-fact.json";
-
   const url = `${baseUrl}/${endpoint}`;
-  const posts = await fetch(`${url}`).then((res) => res.json());
 
-  return posts.map((post: Post) => ({
-    slug: post.slug,
-  }));
+  try {
+    const response = await fetch(url, { cache: "no-store" });
+
+    if (!response.ok) {
+      throw new Error(`Failed to fetch data, status: ${response.status}`);
+    }
+
+    const posts: Post[] = await response.json();
+
+    if (!Array.isArray(posts)) {
+      throw new Error("Unexpected response format: Expected an array");
+    }
+
+    return posts.map((post: Post) => ({
+      slug: post.slug,
+    }));
+  } catch (error) {
+    console.error("Error in generateStaticParams:", error);
+    throw error;
+  }
 }
 
 export async function generateMetadata({
