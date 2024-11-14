@@ -7,7 +7,7 @@ import PlanetBg from "@/components/planetBg";
 interface Post {
   name: string;
   color: string;
-  id: string;
+  id: number;
   slug: string;
   title: string;
   rotation: string;
@@ -33,22 +33,24 @@ interface Post {
   };
 }
 
-// const response = await fetch(url);
-
 async function getPost(slug: string) {
   const baseUrl = process.env.NEXT_PUBLIC_API_URL;
   if (!baseUrl) {
     throw new Error("API_URL environment variable is not set");
   }
 
-  // const baseUrl = process.env.API_URL;
-  const endpoint = "plogs";
-
+  const endpoint = "planet-fact.json";
   const url = `${baseUrl}/${endpoint}`;
-  const res = await fetch(`${url}?slug=${slug}`);
-  const post: Post[] = await res.json();
+  const res = await fetch(`${url}`, { cache: "no-store" });
+  const posts: Post[] = await res.json();
+
+  if (!posts || posts.length === 0) notFound();
+
+  const post = posts.find((post) => post.slug === slug);
+
   if (!post) notFound();
-  return post[0];
+
+  return post;
 }
 
 export async function generateStaticParams() {
@@ -57,8 +59,7 @@ export async function generateStaticParams() {
     throw new Error("API_URL environment variable is not set");
   }
 
-  // const baseUrl = process.env.API_URL;
-  const endpoint = "plogs";
+  const endpoint = "planet-fact.json";
 
   const url = `${baseUrl}/${endpoint}`;
   const posts = await fetch(`${url}`).then((res) => res.json());
@@ -75,6 +76,8 @@ export async function generateMetadata({
 }) {
   const post = await getPost(params.slug);
 
+  if (!post) return {};
+
   return {
     title: post.slug,
     description: post.overview.content,
@@ -87,6 +90,8 @@ export default async function PagePlanets({
   params: { slug: string };
 }) {
   const post = await getPost(params.slug);
+
+  if (!post) notFound();
 
   return (
     <main>
