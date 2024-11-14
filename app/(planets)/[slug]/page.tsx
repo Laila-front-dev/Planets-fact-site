@@ -39,8 +39,8 @@ async function getPost(slug: string) {
     throw new Error("API_URL environment variable is not set");
   }
 
-  const endpoint = "planet-fact.json";
-  const url = `${baseUrl}/${endpoint}`;
+  // const endpoint = "planet-fact.json";
+  const url = `${baseUrl}`;
   const res = await fetch(`${url}`, { cache: "no-store" });
   const posts: Post[] = await res.json();
 
@@ -76,8 +76,8 @@ export async function generateStaticParams() {
     throw new Error("API_URL environment variable is not set");
   }
 
-  const endpoint = "planet-fact.json";
-  const url = `${baseUrl}/${endpoint}`;
+  // const endpoint = "planet-fact.json";
+  const url = `${baseUrl}`;
 
   try {
     const response = await fetch(url, { cache: "no-store" });
