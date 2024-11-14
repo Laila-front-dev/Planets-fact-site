@@ -77,19 +77,20 @@ const PlanetInfo = ({
   };
 
   return (
-    <div className="grid lg:grid-cols-2 m-auto">
+    <div className="grid lg:grid-cols-2  lg:gap-[13.875rem] m-auto">
       <div
         className={`m-auto w-[111px] h-[111px] md:w-[184px] md:h-[184px] lg:w-[290px] lg:h-[290px] relative py-[93px] md:py-[140px] lg:py-0`}
       >
         <Image
           src={currentImage}
-          width={290}
-          height={290}
+          width={490}
+          height={490}
           alt={name}
-          className="relative"
+          className="relative lg:max-w-[400px] lg:h-[400px]"
+          // style={{ maxWidth: "400px", height: "400px" }}
         />
         <div
-          className="w-[80px] h-[100px] lg:left-5 m-[1rem] md:w-[150px] md:h-[184px] lg:ml-[3.3rem] lg:mt-[-4rem] relative z-10"
+          className="w-[80px] h-[100px] lg:left-5 m-[1rem] md:w-[150px] md:h-[184px] lg:ml-[6.7rem] lg:mt-[-4rem] relative z-10"
           style={{
             backgroundImage: `url(${currentBgImage})`,
             backgroundPosition: "center",
@@ -100,14 +101,14 @@ const PlanetInfo = ({
         />
       </div>
 
-      <div className="grid md:grid-cols-2 lg:grid-cols-1 pt-[150px] md:pt-[250px] gap-10">
+      <div className="grid md:grid-cols-2 lg:grid-cols-1 pt-[150px] md:pt-[129px] gap-10">
         <PlanetInformation
           name={name}
           currentText={currentText}
           source={overview.source}
         />
 
-        <div className="absolute top-0 left-0 border-b grid grid-cols-3 w-full py-5 md:relative md:border-none md:grid-cols-1 md:gap-5">
+        <div className="absolute top-0 left-0 border-b grid grid-cols-3 w-full md:relative md:border-none md:grid-cols-1 md:gap-5">
           <Button
             overview="overview"
             internalStructure="internal"

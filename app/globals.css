@@ -2,11 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
-html {
+/* html {
   overflow: hidden;
 }
 
 body {
-  /* height: 100vh; */
+  height: 100vh;
   overflow-x: hidden;
-}
+} */

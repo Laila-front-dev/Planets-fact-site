@@ -11,7 +11,7 @@ interface PlanetTextProps {
 function PlanetInformation({ name, currentText, source }: PlanetTextProps) {
   return (
     <div className="text-center md:text-left">
-      <h1 className={`${antonio.className} text-[2.5rem] uppercase`}>{name}</h1>
+      <h1 className={`${antonio.className} text-[5rem] uppercase`}>{name}</h1>
       <p
         className={`${leagueSpartanRegular.className} text-[0.938rem] leading-[22px] py-6 md:w-[320px] lg:w-[297px]`}
       >

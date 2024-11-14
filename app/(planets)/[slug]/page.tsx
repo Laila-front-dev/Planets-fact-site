@@ -113,7 +113,7 @@ export default async function PagePlanets({
       {/* <div style={{ position: "absolute", width: "100vw", height: "160vh" }}>
         <PlanetBg />
       </div> */}
-      <section className="relative top-[4rem] md:top-0">
+      <section className="relative top-[4.5rem] md:top-0">
         <Container>
           <PlanetInfo
             name={post.name}

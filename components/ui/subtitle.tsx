@@ -15,7 +15,7 @@ function Subtitle({
   temperature,
 }: SubtitleProps) {
   return (
-    <ul className="grid md:grid-cols-4 pt-7">
+    <ul className="grid md:grid-cols-4 pt-7 lg:pt-[5.5rem] lg:pb-[3.813rem]">
       <li className="border p-5 m-2 flex justify-between uppercase md:grid">
         <span className="opacity-50 text-base tracking-[0.73px] md:text-xs">
           rotation Time
