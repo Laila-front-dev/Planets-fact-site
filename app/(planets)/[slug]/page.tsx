@@ -2,7 +2,7 @@ import Container from "@/components/ui/container";
 import { notFound } from "next/navigation";
 import PlanetInfo from "@/components/ui/planetInfo";
 import Subtitle from "@/components/ui/subtitle";
-import PlanetBg from "@/components/planetBg";
+// import PlanetBg from "@/components/planetBg";
 
 interface Post {
   name: string;
@@ -53,22 +53,6 @@ async function getPost(slug: string) {
   return post;
 }
 
-// export async function generateStaticParams() {
-//   const baseUrl = process.env.NEXT_PUBLIC_API_URL;
-//   if (!baseUrl) {
-//     throw new Error("API_URL environment variable is not set");
-//   }
-
-//   const endpoint = "planet-fact.json";
-
-//   const url = `${baseUrl}/${endpoint}`;
-//   const posts = await fetch(`${url}`).then((res) => res.json());
-
-//   return posts.map((post: Post) => ({
-//     slug: post.slug,
-//   }));
-// }
-
 export async function generateStaticParams() {
   const baseUrl = process.env.NEXT_PUBLIC_API_URL;
 
@@ -76,7 +60,6 @@ export async function generateStaticParams() {
     throw new Error("API_URL environment variable is not set");
   }
 
-  // const endpoint = "planet-fact.json";
   const url = `${baseUrl}`;
 
   try {
@@ -127,9 +110,9 @@ export default async function PagePlanets({
 
   return (
     <main>
-      <div style={{ position: "absolute", width: "100vw", height: "160vh" }}>
+      {/* <div style={{ position: "absolute", width: "100vw", height: "160vh" }}>
         <PlanetBg />
-      </div>
+      </div> */}
       <section className="relative top-[4rem] md:top-0">
         <Container>
           <PlanetInfo
